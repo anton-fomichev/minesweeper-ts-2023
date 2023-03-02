@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.header {
+  @include border($bg-dark, $white);
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px;
+  width: 100%;
+}

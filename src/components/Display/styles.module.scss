@@ -1,0 +1,23 @@
+@import '../../styles/sprite.scss';
+
+.display {
+  height: 23px;
+  display: flex;
+  &__unit {
+    display: block;
+    width: 13px;
+    height: 23px;
+  }
+
+  // https://sass-lang.com/documentation/at-rules/control/for
+  // iterates through all offsets for sprite
+  @for $i from 1 through 10 {
+    &-#{$i % 10} {
+      @include sprite(
+        -($i - 1) * 14px,
+        0,
+        url('../../assets/minesweeper-sprites.png')
+      );
+    }
+  }
+}

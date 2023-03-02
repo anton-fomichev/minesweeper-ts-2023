@@ -1,0 +1,4 @@
+@mixin sprite($x, $y, $url) {
+  background-image: $url;
+  background-position: $x $y;
+}

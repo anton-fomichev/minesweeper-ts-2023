@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.board {
+  background-color: $gray;
+  padding: 6px;
+  width: 276px;
+  @include border;
+}

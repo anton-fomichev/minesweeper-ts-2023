@@ -1,0 +1,12 @@
+$app-bg: #8a8a8a;
+$gray: #c0c0c0;
+$white: #ffffff;
+$bg-dark: #7d7d7d;
+
+@mixin border($left-top: $white, $bottom-right: $bg-dark, $size: 2px) {
+  border: $size solid;
+  border-left-color: $left-top;
+  border-top-color: $left-top;
+  border-bottom-color: $bottom-right;
+  border-right-color: $bottom-right;
+}
