@@ -1,0 +1,86 @@
+@import '../../styles/sprite.scss';
+
+.cell {
+  width: 16px;
+  height: 16px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  // NEIGHBOURS(
+  // 1,2,3,4,5,6,7,8)
+  @for $i from 1 through 8 {
+    &-#{$i} {
+      @include sprite(
+        -($i - 1) * 17px,
+        -68px,
+        url('../../assets/minesweeper-sprites.png')
+      );
+    }
+  }
+  // STATUSES (
+  // unchecked,
+  // checked,
+  // flagged,
+  // missflagged,
+  // exploded,
+  // questioned
+  // )
+  &.flagged {
+    @include sprite(
+      -2 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.questioned {
+    @include sprite(
+      -3 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.questioned.active {
+    @include sprite(
+      -4 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  // Bomb
+  &.bomb {
+    @include sprite(
+      -5 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.exploded {
+    @include sprite(
+      -6 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.missflagged {
+    @include sprite(
+      -7 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.unchecked {
+    @include sprite(
+      -0 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+  &.unchecked.active {
+    @include sprite(
+      -1 * 17px,
+      -51px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
+}

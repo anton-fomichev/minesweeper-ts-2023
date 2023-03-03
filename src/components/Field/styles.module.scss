@@ -1,0 +1,7 @@
+@import '../../styles/variables.scss';
+
+.field {
+  display: grid;
+  @include border($bg-dark, $white);
+  grid-template-columns: repeat(16, 16px);
+}
