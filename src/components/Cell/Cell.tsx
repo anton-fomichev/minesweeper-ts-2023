@@ -1,15 +1,15 @@
-import { CellStatus, CellType } from '../../types/types';
-import { useRef, useState } from 'react';
+import { CellEntity, CellStatus, CellType } from '../../types/types';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
 
-export const Cell = (): JSX.Element => {
-  const [status, setStatus] = useState(CellStatus.unchecked);
-  const [isActive, setActive] = useState(false);
-  const neighbours = Math.floor(Math.random() * 8 + 1);
-  const cellEl = useRef<HTMLButtonElement>(null);
-  const type = CellType.empty;
+type CellProps = {
+  cell: CellEntity;
+};
 
+export const Cell = ({ cell }: CellProps): JSX.Element => {
+  const { neighbours, type } = cell;
+  const isActive = false;
+  const status = CellStatus.checked;
   const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
   };
@@ -22,12 +22,7 @@ export const Cell = (): JSX.Element => {
     [styles.bomb]: (type as CellType) === CellType.bomb,
   });
   return (
-    <button
-      ref={cellEl}
-      className={cellClassname}
-      type='button'
-      onClick={handleClick}
-    >
+    <button className={cellClassname} type='button' onClick={handleClick}>
       <span className='visually-hidden'>{neighbours}</span>
     </button>
   );

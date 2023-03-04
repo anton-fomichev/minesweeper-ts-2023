@@ -1,13 +1,14 @@
-import { Display } from '../Display/Display';
+import { Bombs } from '../Bombs/Bombs';
 import { Face } from '../Face/Face';
+import { StopWatch } from '../Stopwatch/Stopwatch';
 import styles from './styles.module.scss';
 
 export const Header = (): JSX.Element => {
   return (
     <div className={styles.header}>
-      <Display></Display>
+      <Bombs />
       <Face />
-      <Display></Display>
+      <StopWatch />
     </div>
   );
 };

@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { FaceState } from '../../types/types';
 import classnames from 'classnames';
 import styles from './styles.module.scss';
+import { restart } from '../../store/toolkitReducer';
+import { useDispatch } from 'react-redux';
 
 export const Face = (): JSX.Element => {
   const [state, setState] = useState(FaceState.default);
-
+  const dispatch = useDispatch();
   const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
+    dispatch(restart());
   };
 
   const btnClass = classnames({

@@ -23,6 +23,24 @@ export const enum CellType {
 }
 
 export type CellEntity = {
-  status: CellStatus,
+  neighbours: number,
   type: CellType
+}
+
+// Game
+export const enum GameStatus {
+  stopped = 'stopped',
+  running = 'running'
+}
+
+export type GameState = {
+  field: CellEntity[][],
+  status: GameStatus,
+  options: {
+    size: number,
+    bombs: number
+  }
+  time: number,
+  flags: number,
+  bombsRevealed: number
 }
