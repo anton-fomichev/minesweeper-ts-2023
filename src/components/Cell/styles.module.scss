@@ -83,7 +83,8 @@
       url('../../assets/minesweeper-sprites.png')
     );
   }
-  &.unchecked.active {
+  &.unchecked.active,
+  &.flagged.active {
     @include sprite(
       -1 * 17px,
       -51px,

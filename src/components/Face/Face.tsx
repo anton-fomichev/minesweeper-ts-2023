@@ -1,12 +1,25 @@
-import { useState } from 'react';
-import { FaceState } from '../../types/types';
+import { FaceState, GameStatus } from '../../types/types';
 import classnames from 'classnames';
 import styles from './styles.module.scss';
 import { restart } from '../../store/toolkitReducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+
+const getFaceStateByGameStatus = (gameStatus: GameStatus) => {
+  switch (gameStatus) {
+    case GameStatus.won:
+      return FaceState.won;
+    case GameStatus.exploded:
+      return FaceState.exploded;
+    default:
+      return FaceState.default;
+  }
+};
 
 export const Face = (): JSX.Element => {
-  const [state, setState] = useState(FaceState.default);
+  const gameStatus = useSelector((state: RootState) => state.game.status);
+  const isFocused = useSelector((state: RootState) => state.game.focused);
+  const faceState = getFaceStateByGameStatus(gameStatus);
   const dispatch = useDispatch();
   const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
@@ -15,8 +28,9 @@ export const Face = (): JSX.Element => {
 
   const btnClass = classnames({
     btn: true,
-    [styles['btn--face']]: true,
-    [styles[`face--${state}`]]: state !== FaceState.default,
+    [styles.face]: true,
+    [styles[`${faceState}`]]: faceState !== FaceState.default,
+    [styles.focused]: isFocused,
   });
   return (
     <button className={btnClass} type='button' onClick={handleClick}>

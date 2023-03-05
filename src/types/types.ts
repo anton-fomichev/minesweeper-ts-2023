@@ -4,7 +4,7 @@ export const enum FaceState {
   active = 'active',
   clicked = 'clicked',
   won = 'won',
-  lost = 'lost',
+  exploded = 'exploded',
 }
 
 // Cell
@@ -20,17 +20,22 @@ export const enum CellStatus {
 export const enum CellType {
   bomb = 'bomb',
   empty = 'empty',
+
 }
 
 export type CellEntity = {
   neighbours: number,
-  type: CellType
+  type: CellType,
+  status: CellStatus,
+  id: string
 }
 
 // Game
 export const enum GameStatus {
   stopped = 'stopped',
-  running = 'running'
+  running = 'running',
+  exploded = 'exploded',
+  won = 'won'
 }
 
 export type GameState = {
@@ -42,5 +47,6 @@ export type GameState = {
   }
   time: number,
   flags: number,
-  bombsRevealed: number
+  cellsRevealed: number,
+  focused: boolean
 }
