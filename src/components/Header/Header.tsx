@@ -1,14 +1,17 @@
-import { Bombs } from '../Bombs/Bombs';
-import { Face } from '../Face/Face';
-import { StopWatch } from '../Stopwatch/Stopwatch';
+import { ReactNode } from 'react';
 import styles from './styles.module.scss';
 
-export const Header = (): JSX.Element => {
-  return (
-    <div className={styles.header}>
-      <Bombs />
-      <Face />
-      <StopWatch />
-    </div>
-  );
+type HeaderProps = {
+  children?: ReactNode;
 };
+
+/**
+ * A component containing header interface of minesweeper game.
+ *
+ * Field is filled with [Cell](../Cell/Cell.tsx) components.
+ * @param props - {children : ReactNode objects containing in header ([Bombs](../Bombs/Bombs.tsx), [Face](../Face/Face.tsx), [Stopwatch](../Stopwatch/Stopwatch.tsx))}
+ * @returns Header component
+ */
+export const Header = ({ children }: HeaderProps): JSX.Element => (
+  <div className={styles.header}>{children}</div>
+);

@@ -9,8 +9,7 @@ export const restart = createAction('RESTART');
 export const runGame = createAction('RUN_GAME');
 export const endGame = createAction<CellEntity>('END_GAME');
 export const pressCell = createAction<CellEntity>('PRESS_CELL');
-export const controlFlags = createAction<CellEntity>('SET_FLAG');
-export const setFocus = createAction<boolean>('SET_FOCUS');
+export const switchFlags = createAction<CellEntity>('SET_FLAG');
 
 export default createReducer(initialState, (builder) => {
   builder
@@ -23,7 +22,6 @@ export default createReducer(initialState, (builder) => {
     .addCase(runGame, (state) => { state.status = GameStatus.running })
     .addCase(endGame, (state, action: PayloadAction<CellEntity>) => {
       state.status = GameStatus.exploded;
-
       const cell = action.payload;
       const field = state.field;
       for (let i = 0; i < field.length; i++) {
@@ -56,7 +54,7 @@ export default createReducer(initialState, (builder) => {
       }
       updateRevealedCells(state);
     })
-    .addCase(controlFlags, (state, action) => {
+    .addCase(switchFlags, (state, action) => {
       const cell: CellEntity = action.payload;
       const field = state.field;
       const newStatusByStatus = {
@@ -85,6 +83,4 @@ export default createReducer(initialState, (builder) => {
       }
       updateRevealedCells(state);
     })
-    .addCase(setFocus, (state, action) => { state.focused = action.payload })
-
 })

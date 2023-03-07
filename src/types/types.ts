@@ -47,6 +47,5 @@ export type GameState = {
   }
   time: number,
   flags: number,
-  cellsRevealed: number,
-  focused: boolean
+  cellsRevealed: number
 }

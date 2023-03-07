@@ -10,6 +10,13 @@
     -24px,
     url('../../assets/minesweeper-sprites.png')
   );
+  &.focused {
+    @include sprite(
+      -2 * 27px,
+      -24px,
+      url('../../assets/minesweeper-sprites.png')
+    );
+  }
   &.won {
     @include sprite(
       -3 * 27px,
@@ -20,13 +27,6 @@
   &.exploded {
     @include sprite(
       -4 * 27px,
-      -24px,
-      url('../../assets/minesweeper-sprites.png')
-    );
-  }
-  &.focused {
-    @include sprite(
-      -2 * 27px,
       -24px,
       url('../../assets/minesweeper-sprites.png')
     );

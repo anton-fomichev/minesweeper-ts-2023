@@ -77,7 +77,6 @@ export const initializeGameState = (): GameState => {
     time: 0,
     flags: 0,
     cellsRevealed: 0,
-    focused: false
   };
 
   return initialState;
@@ -107,6 +106,11 @@ export const autoRevealCells = (field: CellEntity[][], cellCoords: { x: number, 
   return field;
 };
 
+
+/**
+ * Updates the number of revealed cells in the state
+ * @param state WritableDraft\<GameState\>
+ */
 export const updateRevealedCells = (state: WritableDraft<GameState>) => {
   let revealed = 0;
   const field = state.field;
@@ -127,5 +131,6 @@ export const updateRevealedCells = (state: WritableDraft<GameState>) => {
         }
       }
     }
+    state.flags = state.options.bombs
   }
 }

@@ -49,6 +49,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ├── eslint@8.35.0
 ├── prettier@2.8.4
 ├── react-dom@18.2.0
+├── react-id-generator@3.0.2
 ├── react-redux@8.0.5
 ├── react-scripts@5.0.1
 ├── react@18.2.0
@@ -79,6 +80,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
     │   ├── Header
     │   ├── Readme.md
     │   └── Stopwatch
+    ├── hooks
+    │   └── Readme.md
     ├── store
     │   └── Readme.md
     ├── styles
