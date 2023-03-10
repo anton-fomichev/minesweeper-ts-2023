@@ -2,6 +2,8 @@
 
 ## Author: [Anton Fomichev](https://github.com/fluxionbeats)
 
+Demo: [github-pages](https://fluxionbeats.github.io/minesweeper-ts-2023/)
+
 ## Task
 
 <img src="./task.jpg">
@@ -47,6 +49,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ├── eslint-plugin-react-hooks@4.6.0
 ├── eslint-plugin-react@7.32.2
 ├── eslint@8.35.0
+├── gh-pages@5.0.0
 ├── prettier@2.8.4
 ├── react-dom@18.2.0
 ├── react-id-generator@3.0.2
